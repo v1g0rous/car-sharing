@@ -33,7 +33,7 @@ To install app you need:
 ### Run with terminal
 run artifact by `jar` command.
 when starting artifact pass parameters (see Configuration parameters section)
-Example: `java -jar build/libs/Simple-Banking-System-1.0-SNAPSHOT.jar -fileName card.s3db`
+Example: `Example: `java -jar build/libs/Car-Sharing-1.0-SNAPSHOT.jar -databaseFileName database``
 
 
 
