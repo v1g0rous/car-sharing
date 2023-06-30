@@ -1,0 +1,42 @@
+plugins {
+    id 'groovy'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'  // add this line
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.2'
+    implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+compileJava.options.encoding = 'utf-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'utf-8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "carsharing.AppRunner")
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('Car-Sharing')
+    archiveVersion.set('1.0-SNAPSHOT')
+    archiveClassifier.set('')
+}
